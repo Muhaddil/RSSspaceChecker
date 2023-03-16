@@ -137,19 +137,6 @@ function glyphOnClick(button, inputId) {
 	showGlyphs();
 }
 
-function glyphInputOnChange(input) {
-	const intermediateValue = input?.value?.toUpperCase?.();
-	if (intermediateValue == null) return;
-
-	const newValue = intermediateValue
-		.split('')
-		.filter(char => validPortalKeys.includes(char))
-		.join('')
-		.substr(0, 12);
-	input.value = newValue;
-	return newValue;
-}
-
 // clears value of an input
 function clearValues(inputArray) {
 	for (const ID of inputArray) {
@@ -170,21 +157,6 @@ function hideGlyphs(input, target) {
 	}
 }
 
-// returns Hub nr
-function getHubNumber(galaxy_inputId, glyph_inputId) {
-	let check = document.getElementById(galaxy_inputId).value;
-	let glyphs = document.getElementById(glyph_inputId).value;
-	let index;
-	let regArray = [];
-	regArray = Object.keys(regions[check]);
-
-	glyphs = glyphs.substring(4);
-	index = regArray.indexOf(glyphs);
-	index++;
-
-	return index;
-}
-
 function setOutput(output, success) {
 	const outputElement = document.getElementById('output');
 	if (success) {
@@ -199,19 +171,67 @@ function setOutput(output, success) {
 
 function submitGlyphs() {
 	const galaxy = document.getElementById('galaxy_input').value;
-	const glyphs = document.getElementById('portalglyphs_input').value;
+	const input = document.getElementById('portalglyphs_input').value.trim();
 
-	if (glyphs.length != 12) {
-		setOutput('Glyph string is not 12 characters long!', false);
-		return;
-	}
+	const glyphs = (() => {
+		const coords = coords2Glyphs(input);
+		if (coords) return coords;
+		for (const galaxy in regions) {
+			const regNames = Object.values(regions[galaxy]).map(region => region.toLowerCase());
+			const index = regNames.indexOf(input.toLowerCase());
+			if (index > -1) return '0000' + Object.keys(regions[galaxy])[index];
+		}
+		return input;
+	})();
 
 	const regionArray = Object.keys(regions[galaxy]);
-	const regionGlyphs = glyphs.substring(4);
+	const regionGlyphs = glyphs?.substring(4);
 
-	if (regionArray.includes(regionGlyphs)) {
+	if (regionArray.includes(regionGlyphs) && glyphs) {
 		setOutput('You are in Hub space.', true);
 	} else {
 		setOutput('You are not in Hub space!', false);
 	}
+}
+
+function coords2Glyphs(coords) {
+	if (coords.length != 19) return;
+
+	const X_Z_POS_SHIFT = 2049;
+	const X_Z_NEG_SHIFT = 2047;
+	const Y_POS_SHIFT = 129;
+	const Y_NEG_SHIFT = 127;
+
+	const x_coords = parseInt(coords.substring(0, 4), 16);
+	const y_coords = parseInt(coords.substring(5, 9), 16);
+	const z_coords = parseInt(coords.substring(10, 14), 16);
+	const system_idx = parseInt(coords.substring(15, 19), 16);
+
+	let portal_x = 0;
+	let portal_y = 0;
+	let portal_z = 0;
+	if (x_coords < X_Z_NEG_SHIFT) {
+		portal_x = x_coords + X_Z_POS_SHIFT;
+	} else {
+		portal_x = x_coords - X_Z_NEG_SHIFT;
+	}
+	if (z_coords < X_Z_NEG_SHIFT) {
+		portal_z = z_coords + X_Z_POS_SHIFT;
+	} else {
+		portal_z = z_coords - X_Z_NEG_SHIFT;
+	}
+	if (y_coords < Y_NEG_SHIFT) {
+		portal_y = y_coords + Y_POS_SHIFT;
+	} else {
+		portal_y = y_coords - Y_NEG_SHIFT;
+	}
+
+	const glyphs = new Array(5);
+	glyphs[0] = '0';
+	glyphs[1] = system_idx.toString(16).toUpperCase().padStart(3, '0');
+	glyphs[2] = portal_y.toString(16).toUpperCase().padStart(2, '0');
+	glyphs[3] = portal_z.toString(16).toUpperCase().padStart(3, '0');
+	glyphs[4] = portal_x.toString(16).toUpperCase().padStart(3, '0');
+	const glyphString = glyphs.join('');
+	if (glyphString.length == 12) return glyphString;
 }
