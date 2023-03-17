@@ -93,38 +93,6 @@ function deleteCharacter(codeId) {
 	showGlyphs();
 }
 
-// assigns the region based on glyphs
-function glyphRegion(glyph_inputId, galaxy_inputId) {
-	let glyphElement = document.getElementById(glyph_inputId);
-	let glyphs = document.getElementById(glyph_inputId).value;
-	let civ = document.getElementById(galaxy_inputId).value;
-	if (glyphs.length == 12) {
-		let region;
-		let regionGlyphs = glyphs.substring(4);
-		switch (civ) {
-			case "GHub":
-				region = GHubRegions[regionGlyphs];
-				break;
-
-			case "CalHub":
-				region = CalHubRegions[regionGlyphs];
-				break;
-
-			case "EisHub":
-				region = EisHubRegions[regionGlyphs];
-				break;
-		}
-		if (region == undefined) {
-			document.getElementById(region_codeId).style.backgroundColor = 'red';
-			region = 'No valid Hub region'	// NoSonar (region is initialised in the block above)
-			glyphElement.style.backgroundColor = 'red';
-		} else {
-			document.getElementById(region_codeId).style.backgroundColor = '';
-			glyphElement.style.backgroundColor = '';
-		}
-	}
-}
-
 // makes glyph buttons clickable and adds their value to input field
 function glyphOnClick(button, inputId) {
 
