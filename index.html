@@ -14,7 +14,13 @@
 		window.onload = () => {
 			hideGlyphs(document.getElementById('galaxy_input'), 'hide');
 
-			const GHubHosts = ['hubtag.nmsgalactichub.com', 'hub-tag.nmsgalactichub.com', 'hub-tag-generator.nmsgalactichub.com'];
+			const GHubHosts = [
+				'amihereyet.nmsgalactichub.com',
+				'amIhereyet.nmsgalactichub.com',
+				'amithereyet.nmsgalactichub.com',
+				'amIthereyet.nmsgalactichub.com',
+				'amiinhubspace.nmsgalactichub.com'
+			]
 			if (GHubHosts.includes(window.location.host)) document.querySelector('a[href=".."]').href = 'https://nmsgalactichub.com';
 		}
 	</script>
