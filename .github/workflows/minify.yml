@@ -1,5 +1,5 @@
 name: Minify
-
+run-name: Minify Code
 on:
   push:
     branches: ['main']
