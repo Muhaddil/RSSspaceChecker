@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Minify
 
 on:
   push:
@@ -26,6 +26,6 @@ jobs:
       - run: touch .nojekyll
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: . # The folder the action should deploy.
