@@ -153,7 +153,7 @@ function submitGlyphs() {
 	})();
 
 	const regionArray = Object.keys(regions[galaxy]);
-	const regionGlyphs = glyphs?.substring(4);
+	const regionGlyphs = glyphs?.substring(4).toUpperCase();
 
 	if (regionArray.includes(regionGlyphs) && glyphs) {
 		setOutput('You are in Hub space.', true);
