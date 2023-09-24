@@ -8,15 +8,6 @@ import { regions } from './regions';
 
 let galaxy: string;
 
-const GHubHosts = [
-	'amihereyet.nmsgalactichub.com',
-	'amIhereyet.nmsgalactichub.com',
-	'amithereyet.nmsgalactichub.com',
-	'amIthereyet.nmsgalactichub.com',
-	'amiinhubspace.nmsgalactichub.com'
-]
-if (GHubHosts.includes(window.location.host)) (document.querySelector('a[href=".."]') as HTMLAnchorElement).href = 'https://lenni009.github.io/';	// 'https://nmsgalactichub.com';
-
 hideMain();
 
 // hides the main element if no galaxy is given
@@ -29,7 +20,7 @@ export function hideMain() {
 }
 
 // check if glyphs / coords / region match
-export function isHubSpace(input: string): boolean {
+export function isEisvanaSpace(input: string): boolean {
 	const galaxyRegions = regions[galaxy];
 	const regionGlyphs = Object.keys(galaxyRegions);
 	const regionNames = Object.values(galaxyRegions);
@@ -40,8 +31,8 @@ export function isHubSpace(input: string): boolean {
 	const glyphMatch = regionGlyphs.includes(input.substring(4).toUpperCase());
 	const coordMatch = regionGlyphs.includes(convertedGlyphs.substring(4));
 
-	const isHub: boolean = regionMatch || glyphMatch || coordMatch;
-	return isHub;
+	const isEisvana: boolean = regionMatch || glyphMatch || coordMatch;
+	return isEisvana;
 }
 
 export function setOutput(output: string, success: boolean) {

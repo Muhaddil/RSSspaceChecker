@@ -1,14 +1,14 @@
 import { globalElements } from "./elementStore";
 import { showGlyphs } from "./glyphLogic";
-import { isHubSpace, setOutput } from "./main";
+import { isEisvanaSpace, setOutput } from "./main";
 
 export function submit(): void {
 	const input = (globalElements.input!.portalglyphsInput as HTMLInputElement).value.trim();
 
-	const isHub = isHubSpace(input);
-	const message = `You are ${isHub ? '' : 'not'} in Hub space!`;
+	const isEisvana = isEisvanaSpace(input);
+	const message = `You are ${isEisvana ? '' : 'not'} in Eisvana space!`;
 
-	setOutput(input ? message : '', isHub);
+	setOutput(input ? message : '', isEisvana);
 }
 
 // clears value of an input
