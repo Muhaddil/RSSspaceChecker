@@ -6,24 +6,10 @@ import { globalElements } from './elementStore';
 import { coords2Glyphs } from './coordConversion';
 import { regions } from './regions';
 
-let galaxy: string;
-
-hideMain();
-
-// hides the main element if no galaxy is given
-export function hideMain() {
-	const dropdownId = 'galaxyInput';
-	const dropdownElement = globalElements.input![dropdownId] as HTMLSelectElement;
-	const mainElement = document.querySelector('main') as HTMLElement;
-	galaxy = dropdownElement.value;
-	mainElement.style.display = galaxy ? '' : 'none';
-}
-
 // check if glyphs / coords / region match
 export function isEisvanaSpace(input: string): boolean {
-	const galaxyRegions = regions[galaxy];
-	const regionGlyphs = Object.keys(galaxyRegions);
-	const regionNames = Object.values(galaxyRegions);
+	const regionGlyphs = Object.keys(regions);
+	const regionNames = Object.values(regions);
 	const regionNamesLower = regionNames.map(region => region.toLowerCase());
 	const convertedGlyphs = coords2Glyphs(input);
 

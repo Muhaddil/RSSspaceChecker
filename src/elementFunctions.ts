@@ -1,7 +1,6 @@
 import { getElement, GlobalElement, globalElements, GlobalElements } from './elementStore';
 import { reset, submit } from './formActions';
 import { deleteCharacter } from './glyphLogic';
-import { hideMain } from './main';
 import { switchTheme } from './themeSwitch';
 
 export interface ElementFunctions {
@@ -15,11 +14,6 @@ const elementFunctions: ElementFunctions[] = [
 		element: 'themeSwitch',
 		handler: 'click',
 		func: function () { switchTheme() }
-	},
-	{
-		element: 'galaxyInput',
-		handler: 'change',
-		func: function () { hideMain() }
 	},
 	{
 		element: 'delButton',
