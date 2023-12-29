@@ -6,7 +6,7 @@ export function submit(): void {
 	const input = (globalElements.input!.portalglyphsInput as HTMLInputElement).value.trim();
 
 	const isEisvana = isEisvanaSpace(input);
-	const message = `${isEisvana ? '' : 'NO'} Estas en territorio de la Royal Space society!`;
+	const message = `${isEisvana ? '' : 'NO'} Estas en territorio de la Royal Space Society!`;
 
 	setOutput(input ? message : '', isEisvana);
 }
