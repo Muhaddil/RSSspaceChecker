@@ -16,12 +16,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
 
-      - name: Build
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Build App
         run: |
           npm ci
           npm run build
