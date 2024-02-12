@@ -54,7 +54,7 @@ export function assignFunction(dataObject: ElementFunctions): void {
 
     return getElement(elementId);
   })() as GlobalElement;
-  if (element == null) console.error(elementId + ' is null');
+  if (!element) console.error(elementId + ' is null');
   if (Array.isArray(element)) {
     element.forEach((element) => element.addEventListener(handler, func));
   } else {

@@ -38,5 +38,5 @@ export function coords2Glyphs(coords: string): string {
   glyphs[4] = portal_x.toString(16).toUpperCase().padStart(3, '0');
   const glyphString = glyphs.join('');
 
-  return glyphString.length == 12 ? glyphString : '';
+  return glyphString.length === 12 ? glyphString : '';
 }
