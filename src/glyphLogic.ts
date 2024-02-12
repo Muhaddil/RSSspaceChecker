@@ -1,4 +1,4 @@
-import { assignFunction, ElementFunctions } from './elementFunctions';
+import { assignFunction, type ElementFunctions } from './elementFunctions';
 import { globalElements } from './elementStore';
 
 const validPortalKeys = '0123456789ABCDEF';
