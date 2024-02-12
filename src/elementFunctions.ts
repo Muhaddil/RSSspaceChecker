@@ -1,4 +1,4 @@
-import { getElement, GlobalElement, globalElements, GlobalElements } from './elementStore';
+import { getElement, type GlobalElement, globalElements, type GlobalElements } from './elementStore';
 import { reset, submit } from './formActions';
 import { deleteCharacter } from './glyphLogic';
 import { switchTheme } from './themeSwitch';
