@@ -8,31 +8,31 @@ import { regions } from './regions';
 
 // check if glyphs / coords / region match
 export function isEisvanaSpace(input: string): boolean {
-	const regionGlyphs = Object.keys(regions);
-	const regionNames = Object.values(regions);
-	const regionNamesLower = regionNames.map(region => region.toLowerCase());
-	const convertedGlyphs = coords2Glyphs(input);
+  const regionGlyphs = Object.keys(regions);
+  const regionNames = Object.values(regions);
+  const regionNamesLower = regionNames.map((region) => region.toLowerCase());
+  const convertedGlyphs = coords2Glyphs(input);
 
-	const regionMatch = regionNamesLower.includes(input.toLowerCase());
-	const glyphMatch = regionGlyphs.includes(input.substring(4).toUpperCase());
-	const coordMatch = regionGlyphs.includes(convertedGlyphs.substring(4));
+  const regionMatch = regionNamesLower.includes(input.toLowerCase());
+  const glyphMatch = regionGlyphs.includes(input.substring(4).toUpperCase());
+  const coordMatch = regionGlyphs.includes(convertedGlyphs.substring(4));
 
-	const isEisvana: boolean = regionMatch || glyphMatch || coordMatch;
-	return isEisvana;
+  const isEisvana: boolean = regionMatch || glyphMatch || coordMatch;
+  return isEisvana;
 }
 
 export function setOutput(output: string, success: boolean) {
-	const outputElement = globalElements.output!.output as HTMLOutputElement;
+  const outputElement = globalElements.output!.output as HTMLOutputElement;
 
-	const addClass = getClass(success);
-	const removeClass = getClass(!success);
+  const addClass = getClass(success);
+  const removeClass = getClass(!success);
 
-	outputElement.classList.add(addClass);
-	outputElement.classList.remove(removeClass);
+  outputElement.classList.add(addClass);
+  outputElement.classList.remove(removeClass);
 
-	outputElement.innerText = output;
+  outputElement.innerText = output;
 
-	function getClass(success: boolean) {
-		return success ? 'has-background-success-dark' : 'has-background-danger-dark';
-	}
+  function getClass(success: boolean) {
+    return success ? 'has-background-success-dark' : 'has-background-danger-dark';
+  }
 }

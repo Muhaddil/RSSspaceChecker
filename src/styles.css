@@ -2,100 +2,104 @@
 
 /* glyph fonts */
 @font-face {
-	font-family: 'NMS-Glyphs-Mono';
-	src: local('NMS-Glyphs-Mono'), url('./fonts/NMS-Glyphs-Mono.ttf') format('truetype');
+  font-family: 'NMS-Glyphs-Mono';
+  src:
+    local('NMS-Glyphs-Mono'),
+    url('./fonts/NMS-Glyphs-Mono.ttf') format('truetype');
 }
 
 html,
 body {
-	font-family: Nunito;
-	scroll-behavior: smooth;
+  font-family: Nunito;
+  scroll-behavior: smooth;
 }
 
 .container {
-	margin-block-end: 5rem;
-	margin-block-start: 1rem;
-	max-width: 800px;
+  margin-block-end: 5rem;
+  margin-block-start: 1rem;
+  max-width: 800px;
 }
 
 .glyphs {
-	font-family: NMS-Glyphs-Mono;
-	font-size: 3rem;
+  font-family: NMS-Glyphs-Mono;
+  font-size: 3rem;
 }
 
 .portal-buttons {
-	display: grid;
-	grid-template-columns: repeat(8, auto);
-	max-width: 40rem;
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  max-width: 40rem;
+  margin-block-end: 1rem;
 }
 
 .portal-buttons button {
-	line-height: 3rem;
-	padding: 0;
+  line-height: 3rem;
+  padding: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 767px) {
-	.portal-buttons {
-		display: flex;
-		flex-wrap: wrap;
-	}
+  .portal-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-	.portal-buttons button {
-		width: 4rem;
-	}
+  .portal-buttons button {
+    width: 4rem;
+  }
 }
 
 #delButton {
-	margin-inline: 0.5em;
-	width: auto;
+  margin-inline: 0.5em;
+  width: auto;
 }
 
 .title {
-	text-align: center;
-	margin-block-start: 0;
-	margin-block-end: 2rem;
+  text-align: center;
+  margin-block-start: 0;
+  margin-block-end: 2rem;
 }
 
 input.input {
-	width: min(max(60%, 10rem), 100%);
+  width: min(max(60%, 10rem), 100%);
 }
 
-.actions>input {
-	width: auto;
+.actions > input {
+  width: auto;
 }
 
 #glyphDisplay {
-	word-break: break-word;
+  word-break: break-word;
 }
 
 .is-danger {
-	background-color: indianred;
-	border: 1px solid firebrick;
+  background-color: indianred;
+  border: 1px solid firebrick;
 }
 
 .themeswitcher {
-	width: auto;
+  width: auto;
 }
 
 #output {
-	padding: .75rem;
-	border-radius: var(--border-radius);
-	color: white;
-	transition: background-color .3s;
+  padding: 0.75rem;
+  border-radius: var(--pico-border-radius);
+  color: white;
+  transition: background-color 0.3s;
 }
 
 #output:empty {
-	display: none;
+  display: none;
 }
 
 .has-background-danger-dark {
-	background-color: #cc0f35;
+  background-color: #cc0f35;
 }
 
 .has-background-success-dark {
-	background-color: #257953;
+  background-color: #257953;
 }
 
 main {
-	margin-block: 2rem;
+  margin-block: 2rem;
 }

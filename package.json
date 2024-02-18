@@ -1,18 +1,20 @@
 {
-  "name": "amiineisvanaspace",
+  "name": "amiineisvana",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write src/"
   },
   "devDependencies": {
-    "typescript": "^4.9.3",
-    "vite": "^4.5.1"
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1"
   },
   "dependencies": {
-    "@picocss/pico": "^1.5.10"
+    "@picocss/pico": "^2.0.0"
   }
 }

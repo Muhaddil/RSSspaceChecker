@@ -1,19 +1,21 @@
-import { globalElements } from "./elementStore";
-import { showGlyphs } from "./glyphLogic";
-import { isEisvanaSpace, setOutput } from "./main";
+import { globalElements } from './elementStore';
+import { showGlyphs } from './glyphLogic';
+import { isEisvanaSpace, setOutput } from './main';
 
-export function submit(): void {
-	const input = (globalElements.input!.portalglyphsInput as HTMLInputElement).value.trim();
+export function submit() {
+  if (!(globalElements.input?.portalglyphsInput instanceof HTMLInputElement)) return;
+  const input = globalElements.input.portalglyphsInput.value.trim();
 
-	const isEisvana = isEisvanaSpace(input);
-	const message = `You are ${isEisvana ? '' : 'not'} in Eisvana space!`;
+  const isEisvana = isEisvanaSpace(input);
+  const message = `You are ${isEisvana ? '' : 'not'} in Eisvana!`;
 
-	setOutput(input ? message : '', isEisvana);
+  setOutput(input ? message : '', isEisvana);
 }
 
 // clears value of an input
-export function reset(): void {
-	(globalElements.input!.portalglyphsInput as HTMLInputElement).value = '';
-	showGlyphs();
-	submit();
+export function reset() {
+  if (!(globalElements.input?.portalglyphsInput instanceof HTMLInputElement)) return;
+  globalElements.input.portalglyphsInput.value = '';
+  showGlyphs();
+  submit();
 }
