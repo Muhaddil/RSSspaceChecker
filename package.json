@@ -10,11 +10,11 @@
     "format": "prettier --write src/"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.1"
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0"
   },
   "dependencies": {
-    "@picocss/pico": "^2.0.0"
+    "@picocss/pico": "^2.0.6"
   }
 }
