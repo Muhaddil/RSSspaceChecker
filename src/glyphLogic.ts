@@ -32,6 +32,7 @@ export function showGlyphs() {
   const glyphInput = globalElements.input![glyphInputId] as HTMLInputElement;
   const glyphOutput = globalElements.output![glyphOutputId] as HTMLOutputElement;
   glyphOutput.innerText = glyphInput.value;
+  glyphOutput.style.display = glyphInput.value ? 'block' : 'none';
 }
 
 // makes glyph buttons clickable and adds their value to input field

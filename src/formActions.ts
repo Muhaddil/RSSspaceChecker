@@ -1,15 +1,15 @@
 import { globalElements } from './elementStore';
 import { showGlyphs } from './glyphLogic';
-import { isEisvanaSpace, setOutput } from './main';
+import { isSpace, setOutput } from './main';
 
 export function submit() {
   if (!(globalElements.input?.portalglyphsInput instanceof HTMLInputElement)) return;
   const input = globalElements.input.portalglyphsInput.value.trim();
 
-  const isEisvana = isEisvanaSpace(input);
-  const message = `You are ${isEisvana ? '' : 'not'} in Eisvana!`;
+  const isRSS = isSpace(input);
+  const message = isRSS ? '¡Estás en la RSS!' : '¡No estás en la RSS!';
 
-  setOutput(input ? message : '', isEisvana);
+  setOutput(input ? message : '', isRSS);
 }
 
 // clears value of an input

@@ -1,5 +1,5 @@
 {
-  "name": "amiineisvana",
+  "name": "RSSspaceChecker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,7 @@
   "devDependencies": {
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
-    "vite": "^6.2.6"
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1"

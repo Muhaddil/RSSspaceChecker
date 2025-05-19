@@ -7,7 +7,7 @@ import { coords2Glyphs } from './coordConversion';
 import { regions } from './regions';
 
 // check if glyphs / coords / region match
-export function isEisvanaSpace(input: string): boolean {
+export function isSpace(input: string): boolean {
   const regionGlyphs = Object.keys(regions);
   const regionNames = Object.values(regions);
   const regionNamesLower = regionNames.map((region) => region.toLowerCase());
@@ -17,8 +17,8 @@ export function isEisvanaSpace(input: string): boolean {
   const glyphMatch = regionGlyphs.includes(input.substring(4).toUpperCase());
   const coordMatch = regionGlyphs.includes(convertedGlyphs.substring(4));
 
-  const isEisvana: boolean = regionMatch || glyphMatch || coordMatch;
-  return isEisvana;
+  const isRSS: boolean = regionMatch || glyphMatch || coordMatch;
+  return isRSS;
 }
 
 export function setOutput(output: string, success: boolean) {

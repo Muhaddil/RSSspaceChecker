@@ -17,7 +17,96 @@ body {
 .container {
   margin-block-end: 5rem;
   margin-block-start: 1rem;
-  max-width: 800px;
+  max-width: 1000px;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.title {
+  text-align: center;
+  margin-block-start: 0;
+  margin-block-end: 2rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #257953, #2d8f6a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #257953, transparent);
+}
+
+input.input {
+  width: min(max(60%, 10rem), 100%);
+  transition: all 0.3s ease;
+  border: 2px solid #dee2e6;
+  padding: 0.75rem 1rem;
+}
+
+input.input:focus {
+  border-color: #257953;
+  box-shadow: 0 0 0 3px rgba(37, 121, 83, 0.2);
+}
+
+.portal-buttons button {
+  line-height: 3rem;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+  border: 1px solid #dee2e6 !important;
+}
+
+.portal-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#delButton {
+  margin-inline: 0.5em;
+  width: auto;
+  background: linear-gradient(145deg, #cc0f35, #a90d2c);
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+}
+
+#output {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.has-background-success-dark {
+  background-color: #257953;
+  box-shadow: 0 2px 8px rgba(37, 121, 83, 0.2);
+}
+
+.has-background-danger-dark {
+  background-color: #cc0f35;
+  box-shadow: 0 2px 8px rgba(204, 15, 53, 0.2);
+}
+
+#glyphDisplay {
+  display: none;
+  word-break: break-word;
+  background: rgba(37, 121, 83, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px dashed #dee2e6;
+  margin: 1rem 0;
 }
 
 .glyphs {
